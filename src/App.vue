@@ -1,15 +1,24 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import TsSample from './ts-sample/index.vue';
+import { useStore } from "./store";
 
-const onUpdate = (data:any)=>{
-  console.log(data);
+
+const store = useStore()
+const onUpdate = (data: any) => {
+  console.log(data)
 }
+
+const test = (params: (string | boolean)) => {
+  console.log(typeof params);
+}
+store.commit('SET_USERNAME', '李四')
+console.log(store.getters.getName);
+
 
 </script>
 
 <template>
-  <TsSample :msg="'qwe'" @v-delete="onUpdate"></TsSample>
+    <router-view></router-view>
 </template>
 
 <style>
@@ -19,7 +28,7 @@ const onUpdate = (data:any)=>{
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 </style>
   
