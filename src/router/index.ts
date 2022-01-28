@@ -1,27 +1,32 @@
-import { createRouter,createMemoryHistory } from "vue-router";
+import { createRouter,createWebHashHistory } from "vue-router";
 import Layout from "../components/Layout/index.vue"
 const routes = [
     {
         path:'/',
         component:Layout,
         redirect:'/home',
+        hidden: false,
         children:[
             {
                 path:'/home',
                 name: 'home',
+                hidden: false,
                 component: () =>import('../pages/home/index.vue'),
                 meta:{
                     title:'首页',
-                    icon:''
+                    icon:'',
+                    index:'1'
                 }
             },
             {
                 path:'/about',
                 name: 'about',
+                hidden: false,
                 component: () =>import('../pages/about/index.vue'),
                 meta:{
                     title:'关于',
-                    icon:''
+                    icon:'',
+                    index:'2'
                 }
             },
         ]
@@ -29,7 +34,7 @@ const routes = [
 ]
 
 const router = createRouter({
-    history:createMemoryHistory(),
+    history:createWebHashHistory(),
     routes
 })
 
