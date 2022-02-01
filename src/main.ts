@@ -15,8 +15,7 @@ Object.keys(ElIcons).forEach(key =>{
 app.use(store,key)
 app.use(router)
 app.use(ElementPlus)
-app.mount('#app')
-
+const vm = app.mount('#app')
 
 router.beforeEach((to,from,next)=>{
     start()
